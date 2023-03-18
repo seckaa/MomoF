@@ -1,0 +1,33 @@
+2022-12-14 20:47:10,562 [Worker-8: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2022-12-14 20:48:00,336 [Worker-2: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.shopme:ShopmeBackEnd:0.0.1-SNAPSHOT @ D:\Code\paid tuto 3\ShopmeProject\ShopmeWebParent\ShopmeBackEnd\pom.xml.
+2022-12-14 20:48:01,233 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2022-12-14 20:48:01,250 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2022-12-14 20:48:01,255 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\Code\paid tuto 3\ShopmeProject\ShopmeWebParent\ShopmeBackEnd\src\test\resources
+2022-12-14 20:48:01,484 [Worker-2: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:ShopmeCommon:0.0.1-SNAPSHOT @ D:\Code\paid tuto 3\ShopmeProject\ShopmeCommon\pom.xml.
+2022-12-14 20:48:01,769 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2022-12-14 20:48:01,771 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2022-12-14 20:48:01,772 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\Code\paid tuto 3\ShopmeProject\ShopmeCommon\src\test\resources
+2022-12-14 20:48:02,052 [Worker-2: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.shopme:ShopmeFrontEnd:0.0.1-SNAPSHOT @ D:\Code\paid tuto 3\ShopmeProject\ShopmeWebParent\ShopmeFrontEnd\pom.xml.
+2022-12-14 20:48:02,374 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2022-12-14 20:48:02,376 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2022-12-14 20:48:02,380 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\Code\paid tuto 3\ShopmeProject\ShopmeWebParent\ShopmeFrontEnd\src\test\resources
+2022-12-14 20:48:02,875 [Worker-2: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.shopme:ShopmeFrontEnd:0.0.1-SNAPSHOT @ D:\Code\paid tuto 3\ShopmeProject\ShopmeWebParent\ShopmeFrontEnd\pom.xml.
+2022-12-14 20:48:03,030 [Worker-2: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using NULL lifecycle mapping for MavenProject: com.shopme:ShopmeWebParent:0.0.1-SNAPSHOT @ D:\Code\paid tuto 3\ShopmeProject\ShopmeWebParent\pom.xml.
+2022-12-14 20:48:03,079 [Worker-2: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.shopme:ShopmeBackEnd:0.0.1-SNAPSHOT @ D:\Code\paid tuto 3\ShopmeProject\ShopmeWebParent\ShopmeBackEnd\pom.xml.
+2022-12-14 20:48:03,127 [Worker-2: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.shopme:ShopmeFrontEnd:0.0.1-SNAPSHOT @ D:\Code\paid tuto 3\ShopmeProject\ShopmeWebParent\ShopmeFrontEnd\pom.xml.
+2022-12-14 20:48:04,262 [Worker-13: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:ShopmeCommon:0.0.1-SNAPSHOT @ D:\Code\paid tuto 3\ShopmeProject\ShopmeCommon\pom.xml.
+2022-12-14 20:48:05,111 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2022-12-14 20:48:05,122 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2022-12-14 20:48:05,126 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\Code\paid tuto 3\ShopmeProject\ShopmeWebParent\ShopmeBackEnd\src\test\resources
+2022-12-14 20:48:05,427 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2022-12-14 20:48:05,429 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2022-12-14 20:48:05,431 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\Code\paid tuto 3\ShopmeProject\ShopmeCommon\src\test\resources
+2022-12-14 20:48:05,761 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2022-12-14 20:48:05,763 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2022-12-14 20:48:05,765 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\Code\paid tuto 3\ShopmeProject\ShopmeWebParent\ShopmeFrontEnd\src\test\resources
+2022-12-14 20:48:42,024 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2022-12-14 20:48:57,417 [Worker-5: Launching Executing install in D__Code_paid tuto 3_ShopmeProject_ShopmeWebParent_ShopmeFrontEnd] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Code\paid tuto 3\ShopmeProject\ShopmeWebParent\ShopmeFrontEnd
+2022-12-14 20:48:57,424 [Worker-5: Launching Executing install in D__Code_paid tuto 3_ShopmeProject_ShopmeWebParent_ShopmeFrontEnd] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Ppom.xml -B install -Dstyle.color=always
+2022-12-14 20:49:01,370 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2022-12-14 20:49:01,379 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2022-12-14 20:49:01,382 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\Code\paid tuto 3\ShopmeProject\ShopmeWebParent\ShopmeFrontEnd\src\test\resources
