@@ -88,6 +88,11 @@ public class Product {
 			super();
 			this.id = id;
 		}
+	
+
+	public Product(String name) {
+		this.name = name;
+	}
 
 	//getters n setters
 	public Integer getId() {
