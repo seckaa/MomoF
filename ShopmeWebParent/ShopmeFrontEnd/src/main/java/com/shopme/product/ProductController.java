@@ -12,16 +12,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.shopme.category.CategoryService;
 import com.shopme.common.entity.Category;
+import com.shopme.common.entity.Review;
 import com.shopme.common.entity.product.Product;
 import com.shopme.common.exception.CategoryNotFoundException;
 import com.shopme.common.exception.ProductNotFoundException;
+import com.shopme.review.ReviewService;
 
 @Controller
 public class ProductController {
 
 	@Autowired CategoryService categoryService;
 	@Autowired ProductService productService;
-	
+	@Autowired ReviewService reviewService ;
 	@GetMapping("/c/{category_alias}")
 	public String viewCategoryFirstPage(@PathVariable("category_alias") String alias,
 			Model model){
@@ -69,9 +71,11 @@ public class ProductController {
 		try {
 			Product product = productService.getProduct(alias);
 			List<Category> listCategoryParents = categoryService.getCategoryParents(product.getCategory());
+			Page<Review> listReviews = reviewService.list3MostReviewsByProduct(product);
 			
 			model.addAttribute("listCategoryParents",listCategoryParents);
 			model.addAttribute("product",product);
+			model.addAttribute("listReviews",listReviews);
 			model.addAttribute("pageTitle", product.getShortName());
 			
 			return "product/product_detail";
@@ -79,6 +83,40 @@ public class ProductController {
 			return "error/404";
 		}
 	}
+	/*
+	 * @GetMapping("/p/{product_alias}")
+	public String viewProductDetail(@PathVariable("product_alias") String alias, Model model,
+			HttpServletRequest request) {
+		
+		try {
+			Product product = productService.getProduct(alias);
+			List<Category> listCategoryParents = categoryService.getCategoryParents(product.getCategory());
+			Page<Review> listReviews = reviewService.list3MostVotedReviewsByProduct(product);
+			
+			Customer customer = controllerHelper.getAuthenticatedCustomer(request);
+			
+			if (customer != null) {
+				boolean customerReviewed = reviewService.didCustomerReviewProduct(customer, product.getId());
+				voteService.markReviewsVotedForProductByCustomer(listReviews.getContent(), product.getId(), customer.getId());
+				
+				if (customerReviewed) {
+					model.addAttribute("customerReviewed", customerReviewed);
+				} else {
+					boolean customerCanReview = reviewService.canCustomerReviewProduct(customer, product.getId());
+					model.addAttribute("customerCanReview", customerCanReview);
+				}
+			}
+			
+			model.addAttribute("listCategoryParents", listCategoryParents);
+			model.addAttribute("product", product);
+			model.addAttribute("listReviews", listReviews);
+			model.addAttribute("pageTitle", product.getShortName());
+			
+			return "product/product_detail";
+		} catch (ProductNotFoundException e) {
+			return "error/404";
+		}
+	}**/
 
 	@GetMapping("/search")
 	public String searchByPage(@Param("keyword") String keyword,

@@ -80,6 +80,9 @@ public class Product {
 	
 		@OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<ProductDetail> details = new ArrayList<>();
+		
+	private int reviewCount;
+	private float averageRating; 
 	
 	public Product() {
 	}
@@ -315,28 +318,28 @@ public class Product {
 		}
 		return this.price;
 	}
-//
-//	public int getReviewCount() {
-//		return reviewCount;
-//	}
-//
-//	public void setReviewCount(int reviewCount) {
-//		this.reviewCount = reviewCount;
-//	}
-//
-//	public float getAverageRating() {
-//		return averageRating;
-//	}
-//
-//	public void setAverageRating(float averageRating) {
-//		this.averageRating = averageRating;
-//	}
-//	
-//	@Transient
-//	public String getURI() {
-//		return "/p/" + this.alias + "/";
-//	}
-//
+
+	public int getReviewCount() {
+		return reviewCount;
+	}
+
+	public void setReviewCount(int reviewCount) {
+		this.reviewCount = reviewCount;
+	}
+
+	public float getAverageRating() {
+		return averageRating;
+	}
+
+	public void setAverageRating(float averageRating) {
+		this.averageRating = averageRating;
+	}
+	
+	@Transient
+	public String getURI() {
+		return "/p/" + this.alias + "/";
+	}
+
 //	public boolean isCustomerCanReview() {
 //		return customerCanReview;
 //	}

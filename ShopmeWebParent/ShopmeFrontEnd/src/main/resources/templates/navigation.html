@@ -92,11 +92,11 @@
 <!-- 							<a class="nav-link fas fa-shopping-cart fa-2x" th:href="@{/cart}"></a> -->
 <!-- 						</li> -->
 						<div class =full-details-log> 
-					<th:block sec:authorize = "isAuthenticated()">
-					<li class="nav-item">
-						<a class="nav-link fas fa-shopping-cart fa-2x" th:href="@{/cart}"></a>
-					</li>
-					</div>
+						<th:block sec:authorize = "isAuthenticated()">
+						<li class="nav-item">
+							<a class="nav-link fas fa-shopping-cart fa-2x" th:href="@{/cart}"></a>
+						</li>
+						</div>
 						
 						<li class="nav-item">
 							<a class="nav-link" href="javascript: document.logoutForm.submit()">Logout</a>
