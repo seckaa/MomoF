@@ -25,8 +25,8 @@ public class ReviewService {
 	public static final int REVIEWS_PER_PAGE = 5;
 	
 	@Autowired private ReviewRepository reviewRepo;
-//	@Autowired private OrderDetailRepository orderDetailRepo;
-//	@Autowired private ProductRepository productRepo;
+	@Autowired private OrderDetailRepository orderDetailRepo;
+	@Autowired private ProductRepository productRepo;
 
 	public Page<Review> listByCustomerByPage(Customer customer, String keyword, int pageNum, 
 			String sortField, String sortDir) {
@@ -51,7 +51,8 @@ public class ReviewService {
 	}
 	
 	public Page<Review> list3MostReviewsByProduct(Product product) {
-		Sort sort = Sort.by("reviewTime").descending();
+		//Sort sort = Sort.by("reviewTime").descending();
+		Sort sort = Sort.by("votes").descending();
 		Pageable pageable = PageRequest.of(0, 3, sort);
 		
 		return reviewRepo.findByProduct(product, pageable);		
@@ -64,24 +65,24 @@ public class ReviewService {
 		
 		return reviewRepo.findByProduct(product, pageable);
 	}
-//
-//	public boolean didCustomerReviewProduct(Customer customer, Integer productId) {
-//		Long count = reviewRepo.countByCustomerAndProduct(customer.getId(), productId);
-//		return count > 0;
-//	}
-//	
-//	public boolean canCustomerReviewProduct(Customer customer, Integer productId) {
-//		Long count = orderDetailRepo.countByProductAndCustomerAndOrderStatus(productId, customer.getId(), OrderStatus.DELIVERED);
-//		return count > 0;
-//	}
-//	
-//	public Review save(Review review) {
-//		review.setReviewTime(new Date());
-//		Review savedReview = reviewRepo.save(review);
-//		
-//		Integer productId = savedReview.getProduct().getId();		
-//		productRepo.updateReviewCountAndAverageRating(productId);
-//		
-//		return savedReview;
-//	}
+
+	public boolean didCustomerReviewProduct(Customer customer, Integer productId) {
+		Long count = reviewRepo.countByCustomerAndProduct(customer.getId(), productId);
+		return count > 0;
+	}
+	
+	public boolean canCustomerReviewProduct(Customer customer, Integer productId) {
+		Long count = orderDetailRepo.countByProductAndCustomerAndOrderStatus(productId, customer.getId(), OrderStatus.DELIVERED);
+		return count > 0;
+	}
+	
+	public Review save(Review review) {
+		review.setReviewTime(new Date());
+		Review savedReview = reviewRepo.save(review);
+		
+		Integer productId = savedReview.getProduct().getId();		
+		productRepo.updateReviewCountAndAverageRating(productId);
+		
+		return savedReview;
+	}
 }

@@ -23,16 +23,16 @@ public interface ReviewRepository extends JpaRepository<Review, Integer> {
 	public Review findByCustomerAndId(Integer customerId, Integer reviewId);
 	
 	public Page<Review> findByProduct(Product product, Pageable pageable);
-//	
-//	@Query("SELECT COUNT(r.id) FROM Review r WHERE r.customer.id = ?1 AND "
-//			+ "r.product.id = ?2")
-//	public Long countByCustomerAndProduct(Integer customerId, Integer productId);
-//	
-//	@Query("UPDATE Review r SET r.votes = COALESCE((SELECT SUM(v.votes) FROM ReviewVote v"
-//			+ " WHERE v.review.id=?1), 0) WHERE r.id = ?1")
-//	@Modifying
-//	public void updateVoteCount(Integer reviewId);
-//	
-//	@Query("SELECT r.votes FROM Review r WHERE r.id = ?1")
-//	public Integer getVoteCount(Integer reviewId);
+	
+	@Query("SELECT COUNT(r.id) FROM Review r WHERE r.customer.id = ?1 AND "
+			+ "r.product.id = ?2")
+	public Long countByCustomerAndProduct(Integer customerId, Integer productId);
+	
+	@Query("UPDATE Review r SET r.votes = COALESCE((SELECT SUM(v.votes) FROM ReviewVote v"
+			+ " WHERE v.review.id=?1), 0) WHERE r.id = ?1")
+	@Modifying
+	public void updateVoteCount(Integer reviewId);
+	
+	@Query("SELECT r.votes FROM Review r WHERE r.id = ?1")
+	public Integer getVoteCount(Integer reviewId);
 }

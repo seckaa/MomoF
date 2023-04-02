@@ -14,9 +14,9 @@
 						th:reviewId="${review.id}"
 					   	th:href="@{'/vote_review/' + ${review.id} + '/up'}"></a>
 				</div>
-				
+
 				<div class="col-xs ml-2">
-					<span th:id="'voteCount-' + ${review.id}">[[${review.votes}]] Votes</span>
+					<span th:id="'voteCount-' + ${review.id}">[[${review.votes}]] Vote(s)</span>
 				</div>
 				
 				<div class="col-xs ml-2">
@@ -25,7 +25,8 @@
 						th:id="'linkVoteDown-' + ${review.id}"
 						th:reviewId="${review.id}"
 					   	th:href="@{'/vote_review/' + ${review.id} + '/down'}"></a>
-				</div>				
+				</div>		
+						
 			</div>
 			<div class="row">
 				<div class="col"><b>[[${review.headline}]]</b></div>

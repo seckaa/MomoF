@@ -1,6 +1,6 @@
 package com.shopme.common.entity.product;
 
-import java.beans.Transient;
+import javax.persistence.Transient;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
@@ -83,6 +83,9 @@ public class Product {
 		
 	private int reviewCount;
 	private float averageRating; 
+	
+	@Transient private boolean customerCanReview;
+	@Transient private boolean reviewedByCustomer;
 	
 	public Product() {
 	}
@@ -257,6 +260,10 @@ public class Product {
 	public void setImages(Set<ProductImage> images) {
 		this.images = images;
 	}
+	
+	
+	
+	
 
 	@Override
 	public String toString() {
@@ -340,19 +347,19 @@ public class Product {
 		return "/p/" + this.alias + "/";
 	}
 
-//	public boolean isCustomerCanReview() {
-//		return customerCanReview;
-//	}
-//
-//	public void setCustomerCanReview(boolean customerCanReview) {
-//		this.customerCanReview = customerCanReview;
-//	}
-//
-//	public boolean isReviewedByCustomer() {
-//		return reviewedByCustomer;
-//	}
-//
-//	public void setReviewedByCustomer(boolean reviewedByCustomer) {
-//		this.reviewedByCustomer = reviewedByCustomer;
-//	}
+	public boolean isCustomerCanReview() {
+		return customerCanReview;
+	}
+
+	public void setCustomerCanReview(boolean customerCanReview) {
+		this.customerCanReview = customerCanReview;
+	}
+
+	public boolean isReviewedByCustomer() {
+		return reviewedByCustomer;
+	}
+
+	public void setReviewedByCustomer(boolean reviewedByCustomer) {
+		this.reviewedByCustomer = reviewedByCustomer;
+	}
 }

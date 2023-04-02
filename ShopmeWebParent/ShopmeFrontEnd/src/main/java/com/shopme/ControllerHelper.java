@@ -12,8 +12,9 @@ import com.shopme.customer.CustomerService;
 public class ControllerHelper {
 	@Autowired private CustomerService customerService;
 	
-//	public Customer getAuthenticatedCustomer(HttpServletRequest request) {
-//		String email = Utility.getEmailOfAuthenticatedCustomer(request);				
-//		return customerService.getCustomerByEmail(email);
-//	}
+	public Customer getAuthenticatedCustomer(HttpServletRequest request) {
+		String email = Utility.getEmailOfAuthenticatedCustomer(request);	
+		
+		return customerService.getCustomerByEmail(email);
+	}
 }

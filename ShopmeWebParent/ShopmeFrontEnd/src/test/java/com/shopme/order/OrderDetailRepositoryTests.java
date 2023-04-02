@@ -14,15 +14,15 @@ import com.shopme.common.entity.order.OrderStatus;
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 public class OrderDetailRepositoryTests {
 
-//	@Autowired private OrderDetailRepository repo;
-//	
-//	@Test
-//	public void testCountByProductAndCustomerAndOrderStatus() {
-//		Integer productId = 106;
-//		Integer customerId = 1;
-//		
-//		Long count = repo.countByProductAndCustomerAndOrderStatus(productId, customerId, OrderStatus.DELIVERED);
-//		assertThat(count).isGreaterThan(0);
-//	}
-//	
-}
+	@Autowired private OrderDetailRepository repo;
+	
+	@Test
+	public void testCountByProductAndCustomerAndOrderStatus() {
+		Integer productId = 63;
+		Integer customerId = 1;
+//		177
+		Long count = repo.countByProductAndCustomerAndOrderStatus(productId, customerId, OrderStatus.DELIVERED);
+		assertThat(count).isGreaterThan(0);
+	}
+	
+} 
