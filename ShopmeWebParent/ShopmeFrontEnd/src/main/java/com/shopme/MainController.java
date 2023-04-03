@@ -52,7 +52,7 @@ public class MainController {
 			return "login";
 		}
 		
-		return "redirect:/";
+		return "redirect:/home";
 	}
 	@GetMapping("")
 	public String viewMain() {
