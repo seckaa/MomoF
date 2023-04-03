@@ -20,6 +20,7 @@ import org.springframework.test.web.servlet.MvcResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.shopme.common.entity.Review;
 import com.shopme.review.ReviewRepository;
+import com.shopme.vote.VoteResult;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -46,7 +47,7 @@ public class ReviewVoteRestControllerTests {
 	}
 	
 	@Test
-	@WithMockUser(username = "tina.jamerson@gmail.com", password = "tina2020")
+	@WithMockUser(username = "tina.jamerson.2021@gmail.com", password = "tina2020")
 	public void testVoteNonExistReview() throws Exception {
 		String requestURL = "/vote_review/123/up";
 		
@@ -63,9 +64,9 @@ public class ReviewVoteRestControllerTests {
 	}	
 	
 	@Test
-	@WithMockUser(username = "tina.jamerson@gmail.com", password = "tina2020")
+	@WithMockUser(username = "tina.jamerson.2021@gmail.com", password = "tina2020")
 	public void testVoteUp() throws Exception {
-		Integer reviewId = 10;
+		Integer reviewId = 20;
 		String requestURL = "/vote_review/" + reviewId + "/up";
 		
 		Review review = reviewRepo.findById(reviewId).get();
@@ -88,7 +89,7 @@ public class ReviewVoteRestControllerTests {
 	}
 	
 	@Test
-	@WithMockUser(username = "tina.jamerson@gmail.com", password = "tina2020")
+	@WithMockUser(username = "tina.jamerson.2021@gmail.com", password = "tina2020")
 	public void testUndoVoteUp() throws Exception {
 		Integer reviewId = 20;
 		String requestURL = "/vote_review/" + reviewId + "/up";

@@ -1,6 +1,5 @@
 package com.shopme.common.entity.product;
 
-import javax.persistence.Transient;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
@@ -11,38 +10,34 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.shopme.common.Constants;
 import com.shopme.common.entity.Brand;
 import com.shopme.common.entity.Category;
+import com.shopme.common.entity.IdBasedEntity;
 
 @Entity
-@Table(name="products")
-public class Product {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+@Table(name = "products")
+public class Product extends IdBasedEntity {
 	
 	@Column(unique = true, length = 255, nullable = false)
 	private String name;
 	
-	@Column(unique = true, length = 255, nullable = false)	
+	@Column(unique = true, length = 255, nullable = false)
 	private String alias;
 	
-	@Column(length = 512, nullable = false, name="short_description")
+	@Column(length = 512, nullable = false, name = "short_description")
 	private String shortDescription;
 	
-	@Column(length = 4096, nullable = false, name="full_description")
+	@Column(length = 4096, nullable = false, name = "full_description")
 	private String fullDescription;
 	
-	@Column(name = "created_time")
+	@Column(name = "created_time", nullable = false, updatable = false)
 	private Date createdTime;
 	
 	@Column(name = "updated_time")
@@ -56,6 +51,7 @@ public class Product {
 	private float cost;
 	
 	private float price;
+	
 	@Column(name = "discount_percent")
 	private float discountPercent;
 	
@@ -66,47 +62,36 @@ public class Product {
 	
 	@Column(name = "main_image", nullable = false)
 	private String mainImage;
-	
+		
 	@ManyToOne
-	@JoinColumn(name= "category_id")
+	@JoinColumn(name = "category_id")
 	private Category category;
-	
-	@ManyToOne
-	@JoinColumn(name= "brand_id")
-	private Brand brand;
 
+	@ManyToOne
+	@JoinColumn(name = "brand_id")	
+	private Brand brand;
+	
 	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<ProductImage> images = new HashSet<>();
 	
-		@OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<ProductDetail> details = new ArrayList<>();
-		
+
 	private int reviewCount;
-	private float averageRating; 
+	private float averageRating;
 	
 	@Transient private boolean customerCanReview;
 	@Transient private boolean reviewedByCustomer;
 	
+	public Product(Integer id) {
+		this.id = id;
+	}
+
 	public Product() {
 	}
 	
-	public Product(Integer id) {
-			super();
-			this.id = id;
-		}
-	
-
 	public Product(String name) {
 		this.name = name;
-	}
-
-	//getters n setters
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public String getName() {
@@ -245,6 +230,11 @@ public class Product {
 		this.brand = brand;
 	}
 
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + "]";
+	}
+
 	public String getMainImage() {
 		return mainImage;
 	}
@@ -252,7 +242,7 @@ public class Product {
 	public void setMainImage(String mainImage) {
 		this.mainImage = mainImage;
 	}
-	
+
 	public Set<ProductImage> getImages() {
 		return images;
 	}
@@ -261,24 +251,15 @@ public class Product {
 		this.images = images;
 	}
 	
-	
-	
-	
-
-	@Override
-	public String toString() {
-		return "Product [id=" + id + ", name=" + name + "]";
-	}
-	
 	public void addExtraImage(String imageName) {
 		this.images.add(new ProductImage(imageName, this));
 	}
 	
 	@Transient
 	public String getMainImagePath() {
-		if (id == null || mainImage == null) return "/images/image-thumbnail.png";		
+		if (id == null || mainImage == null) return "/images/image-thumbnail.png";
+		
 		return Constants.S3_BASE_URI +"/product-images/" + this.id + "/" + this.mainImage;
-//		return "/product-images/" + this.id + "/" + this.mainImage;
 	}
 
 	public List<ProductDetail> getDetails() {
@@ -362,4 +343,6 @@ public class Product {
 	public void setReviewedByCustomer(boolean reviewedByCustomer) {
 		this.reviewedByCustomer = reviewedByCustomer;
 	}
+	
+	
 }

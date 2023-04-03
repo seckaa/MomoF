@@ -14,41 +14,40 @@ import javax.persistence.Transient;
 import com.shopme.common.Constants;
 
 @Entity
-@Table(name="brands")
-public class Brand extends IdBasedEntity{
+@Table(name = "brands")
+public class Brand extends IdBasedEntity {
 	
-	
-	@Column(length = 45, nullable = false, unique = true)
+	@Column(nullable = false, length = 45, unique = true)
 	private String name;
 	
-	@Column(length = 128, nullable = false)
+	@Column(nullable = false, length = 128)
 	private String logo;
-			
+	
 	@ManyToMany
 	@JoinTable(
-			name="brands_categories",
-			joinColumns = @JoinColumn(name="brand_id"),
-			inverseJoinColumns  = @JoinColumn(name="category_id")
+			name = "brands_categories",
+			joinColumns = @JoinColumn(name = "brand_id"),
+			inverseJoinColumns = @JoinColumn(name = "category_id")
 			)
 	private Set<Category> categories = new HashSet<>();
-	
-	//Constructor
+
 	public Brand() {
+		
 	}
 	
 	public Brand(String name) {
-		super();
 		this.name = name;
 		this.logo = "brand-logo.png";
 	}
-		
+
+	public Brand(Integer id) {
+		this.id = id;
+	}
+	
 	public Brand(Integer id, String name) {
-		super();
 		this.id = id;
 		this.name = name;
 	}
-
-	//getters n setters
 
 	public String getName() {
 		return name;
@@ -74,8 +73,6 @@ public class Brand extends IdBasedEntity{
 		this.categories = categories;
 	}
 
-	
-	//to String 
 	@Override
 	public String toString() {
 		return "Brand [id=" + id + ", name=" + name + ", categories=" + categories + "]";
@@ -83,8 +80,8 @@ public class Brand extends IdBasedEntity{
 
 	@Transient
 	public String getLogoPath() {
-		if(this.id == null) return "/images/image-thumbnail.png";
-		return Constants.S3_BASE_URI + "/brand-logos/" + this.id + "/" + this.logo;
+		if (this.id == null) return "/images/image-thumbnail.png";
+		
+		return Constants.S3_BASE_URI + "/brand-logos/" + this.id + "/" + this.logo;		
 	}
-	
 }

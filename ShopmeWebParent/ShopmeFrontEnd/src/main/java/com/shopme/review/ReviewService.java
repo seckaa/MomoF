@@ -50,8 +50,7 @@ public class ReviewService {
 		return review;
 	}
 	
-	public Page<Review> list3MostReviewsByProduct(Product product) {
-		//Sort sort = Sort.by("reviewTime").descending();
+	public Page<Review> list3MostVotedReviewsByProduct(Product product) {
 		Sort sort = Sort.by("votes").descending();
 		Pageable pageable = PageRequest.of(0, 3, sort);
 		

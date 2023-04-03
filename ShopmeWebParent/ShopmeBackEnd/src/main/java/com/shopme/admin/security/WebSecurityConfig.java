@@ -43,8 +43,8 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http)throws Exception{
 		http.authorizeRequests()
 					.antMatchers("/states/list_by_country/**").hasAnyAuthority("Admin", "Salesperson")
-					.antMatchers("/users/**", "/settings/**","/countries/**","/states/**").hasAuthority("Admin")
-					.antMatchers("/categories/**", "/brands/**").hasAnyAuthority("Admin", "Editor")
+					.antMatchers("/users/**", "/settings/**", "/countries/**", "/states/**").hasAuthority("Admin")
+					.antMatchers("/categories/**", "/brands/**", "/articles/**", "/sections/**").hasAnyAuthority("Admin", "Editor")
 					
 					.antMatchers("/products/new", "/products/delete/**").hasAnyAuthority("Admin", "Editor")
 					
@@ -53,22 +53,18 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
 						
 					.antMatchers("/products", "/products/", "/products/detail/**", "/products/page/**")
 						.hasAnyAuthority("Admin", "Editor", "Salesperson", "Shipper")
-					
-					.antMatchers("/products/**").hasAnyAuthority("Admin", "Editor")
-					
-					
-					.antMatchers("/orders","/orders/","/orders/page/**","/orders/detail/**")
-						.hasAnyAuthority("Admin", "Salesperson","Shipper")
 						
-					.antMatchers("/products/detail/**","/customers/detail/**")
-						.hasAnyAuthority("Admin","Editor", "Salesperson","Assistant")
-						
-					.antMatchers("/customers/**","/orders/**","/get_shipping_cost","/reports/**")
-						.hasAnyAuthority("Admin", "Salesperson")
+					.antMatchers("/products/**", "/menus/**", "/articles/**").hasAnyAuthority("Admin", "Editor")
+					
+					.antMatchers("/orders", "/orders/", "/orders/page/**", "/orders/detail/**").hasAnyAuthority("Admin", "Salesperson", "Shipper")
+					
+					.antMatchers("/products/detail/**", "/customers/detail/**").hasAnyAuthority("Admin", "Editor", "Salesperson", "Assistant")
+			
+					.antMatchers("/customers/**", "/orders/**", "/get_shipping_cost", "/reports/**").hasAnyAuthority("Admin", "Salesperson")
 					
 					.antMatchers("/orders_shipper/update/**").hasAuthority("Shipper")
 					
-					.antMatchers("/reviews/**").hasAnyAuthority("Admin", "Editor")
+					.antMatchers("/reviews/**", "/questions/**").hasAnyAuthority("Admin", "Assistant")
 					
 					.anyRequest()
 					.authenticated()

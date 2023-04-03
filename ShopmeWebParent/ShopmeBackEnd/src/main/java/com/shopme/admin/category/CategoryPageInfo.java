@@ -2,18 +2,19 @@ package com.shopme.admin.category;
 
 public class CategoryPageInfo {
 	private int totalPages;
-	private long totalelements;
+	private long totalElements;
+	
 	public int getTotalPages() {
 		return totalPages;
 	}
 	public void setTotalPages(int totalPages) {
 		this.totalPages = totalPages;
 	}
-	public long getTotalelements() {
-		return totalelements;
+	public long getTotalElements() {
+		return totalElements;
 	}
-	public void setTotalelements(long totalelements) {
-		this.totalelements = totalelements;
+	public void setTotalElements(long totalElements) {
+		this.totalElements = totalElements;
 	}
 	
 	

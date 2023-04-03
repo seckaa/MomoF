@@ -1,4 +1,4 @@
-package com.shopme.review.vote;
+package com.shopme.vote;
 
 public enum VoteType {
 	UP {

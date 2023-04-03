@@ -10,7 +10,7 @@
 		<a th:href="@{/customers/export/csv}" class="fas fa-file-csv fa-2x icon-dark mr-2"></a>
 	</div>
 		
-	<div th:replace="fragments :: search_form_and_message"/>
+	<div th:replace="fragments :: search_form_and_message" />
 	
 	<div class="full-details">
 		<table class="table table-bordered table-striped table-hover table-responsive-xl">
@@ -107,18 +107,10 @@
 <script th:src="@{/js/common_list.js}"></script>
 <script type="text/javascript">
 	moduleURL = "[[@{/customers}]]";
+	entityName = "customer";
 
 	$(document).ready(function() {
-		$(".link-delete").on("click", function(e) {
-			e.preventDefault();
-			showDeleteConfirmModal($(this), 'customer');
-		});
-		
-		$(".link-detail").on("click", function(e) {
-			e.preventDefault();
-			linkDetailURL = $(this).attr("href");
-			$("#detailModal").modal("show").find(".modal-content").load(linkDetailURL);
-		});		
+		handleDefaultDetailLinkClick();
 	});
 </script>
 </body>

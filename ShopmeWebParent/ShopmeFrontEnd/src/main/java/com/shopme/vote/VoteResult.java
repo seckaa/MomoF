@@ -1,4 +1,4 @@
-package com.shopme.review.vote;
+package com.shopme.vote;
 
 public class VoteResult {
 	private boolean successful;
@@ -12,7 +12,6 @@ public class VoteResult {
 	public static VoteResult success(String message, int voteCount) {
 		return new VoteResult(true, message, voteCount);
 	}
-	private VoteResult() {}
 	
 	private VoteResult(boolean successful, String message, int voteCount) {
 		this.successful = successful;

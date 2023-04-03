@@ -11,11 +11,12 @@ import org.springframework.stereotype.Service;
 import com.shopme.common.entity.Customer;
 import com.shopme.common.entity.Review;
 import com.shopme.common.entity.ReviewVote;
-//import com.shopme.common.entity.ReviewVote;
 import com.shopme.review.ReviewRepository;
+import com.shopme.vote.VoteResult;
+import com.shopme.vote.VoteType;
 
 @Service
-@Transactional // when repo has a non default query
+@Transactional
 public class ReviewVoteService {
 	
 	@Autowired private ReviewRepository reviewRepo;

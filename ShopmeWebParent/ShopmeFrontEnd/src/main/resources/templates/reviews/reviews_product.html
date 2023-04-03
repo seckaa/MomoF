@@ -32,11 +32,13 @@
 				<div class="col-xs ml-1 mt-3"><span id="ratingNumber">[[${product.averageRating}]]</span> of 5</div>
 			</div>
 			<div class="row m-1 ml-3">
-				<span>[[${product.reviewCount}]] rating(s)</span>
+				<span>[[${product.reviewCount}]] ratings</span>
 			</div>			
 		</div>
 	</div>	
-	
+
+	<div class="row"><div class="col"><hr/></div></div>
+
 	<div th:replace="reviews/reviews_votes :: content"></div>
 	
 	<div th:replace="fragments :: modal_dialog"></div>
@@ -46,18 +48,24 @@
 	<div th:replace="navigation :: footer_menu"></div>
 	
 </div>
-<script type="text/javascript">	
-	
+<script type="text/javascript">
 	var csrfHeaderName = "[[${_csrf.headerName}]]";
 	var csrfValue = "[[${_csrf.token}]]";
 	
 	decimalSeparator = "[[${DECIMAL_POINT_TYPE == 'COMMA' ? ',' : '.'}]]";
 	thousandSeparator = "[[${THOUSANDS_POINT_TYPE == 'COMMA' ? ',' : '.'}]]";
+	
+	$(document).ready(function() {
+		$(".linkVoteReview").on("click", function(e) {
+			e.preventDefault();
+			doVote($(this), "review");
+		});		
+	});	
 </script>
 <script th:src="@{/js/common_list.js}"></script>
-<script type="text/javascript" th:src="@{/js/jquery.number.min.js}"></script>
-<script type="text/javascript" th:src="@{/js/common_rating.js}"></script>
-<script type="text/javascript" th:src="@{/js/common_modal.js}"></script>
-<script type="text/javascript" th:src="@{/js/review_vote.js}"></script>
+<script th:src="@{/js/jquery.number.min.js}"></script>
+<script th:src="@{/js/common_rating.js}"></script>
+<script th:src="@{/js/common_modal.js}"></script>
+<script th:src="@{/js/common_vote.js}"></script>
 </body>
 </html>
