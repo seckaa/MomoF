@@ -32,7 +32,7 @@ public class MainController {
 			model.addAttribute("listCategories", listCategories);
 		}
 		
-		return "index";
+		return "shopping";
 	}
 
 	private boolean hasAllCategoriesSection(List<Section> listSections) {
@@ -53,5 +53,9 @@ public class MainController {
 		}
 		
 		return "redirect:/";
-	}	
+	}
+	@GetMapping("/main")
+	public String viewMain() {
+			return "index";
+	}
 }
