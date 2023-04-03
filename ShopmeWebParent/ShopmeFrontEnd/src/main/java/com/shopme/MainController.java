@@ -22,7 +22,7 @@ public class MainController {
 	@Autowired private CategoryService categoryService;
 	@Autowired private SectionService sectionService;
 	
-	@GetMapping("")
+	@GetMapping("/main")
 	public String viewHomePage(Model model) {
 		List<Section> listSections = sectionService.listEnabledSections();
 		model.addAttribute("listSections", listSections);
@@ -54,7 +54,7 @@ public class MainController {
 		
 		return "redirect:/";
 	}
-	@GetMapping("/main")
+	@GetMapping("")
 	public String viewMain() {
 			return "index";
 	}
