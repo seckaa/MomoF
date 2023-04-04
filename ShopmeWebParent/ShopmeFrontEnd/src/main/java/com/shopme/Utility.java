@@ -91,4 +91,29 @@ public class Utility {
 		String formattedCurrency = formatCurrency(amount,null);
 		System.out.println(formattedCurrency);
 	}
+	
+//	public void sendAFax() {
+//		//get new instance of a fax client (based on internal + external fax4j.properties file data)
+//		FaxClient faxClient=FaxClientFactory.createFaxClient();
+//
+//		//create a new fax job
+//		FaxJob faxJob=faxClient.createFaxJob();
+//
+//		//set fax job values
+//		faxJob.setFile(new File("./my_document.txt"));
+//		faxJob.setPriority(FaxJobPriority.HIGH_PRIORITY);
+//		faxJob.setTargetAddress("212-234-6477");
+//		faxJob.setTargetName("Momo");
+//		faxJob.setSenderEmail("mopointofsales@gmail.com");
+//		faxJob.setSenderName("Test");
+//
+//		//submit fax job
+//		faxClient.submitFaxJob(faxJob);
+//
+//		//print submitted fax job ID (may not be supported by all SPIs)
+//		System.out.println("Fax job submitted, ID: "+faxJob.getID());
+//	}
+	
+	//https://www.youtube.com/watch?v=XufD2wnVjNE
+	//https://www.youtube.com/watch?v=98P6Ara2SSU
 }
